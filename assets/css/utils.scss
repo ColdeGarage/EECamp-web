@@ -1,0 +1,129 @@
+@for $p from 1 to 101 {
+  // w20p = width: 20%;  w45p = width: 45p;
+  // h34p = height: 34%;  h70p = height: 70p;
+  // 類推 1% ~ 100%
+  .w#{$p}p {
+    width: $p * 1%;
+  }
+  .h#{$p}p {
+    height: $p * 1%;
+  }
+  .m-w#{$p}p {
+    max-width: $p * 1%;
+  }
+  .m-h#{$p}p {
+    max-height: $p * 1%;
+  }
+  .w#{$p}vh {
+    width: $p * 1vh;
+  }
+  .h#{$p}vh {
+    height: $p * 1vh;
+  }
+}
+
+.b-rad-0 {
+  border-radius: 0px !important;
+}
+
+@for $line from 1 to 10 {
+  .line-clamp-#{$line} {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: $line;
+    -webkit-box-orient: vertical;
+    height: auto;
+  }
+}
+
+@for $b from 0 to 21 {
+  .b-rad-#{$b} {
+    border-radius: $b * 1px !important;
+  }
+}
+
+@for $z from 0 to 99 {
+  .z-index-#{$z} {
+    z-index: $z;
+  }
+}
+
+.opacity--0 {
+  opacity: 0 !important;
+}
+
+@for $opacity from 1 to 11 {
+  .opacity--#{$opacity}0 {
+    opacity: $opacity * 0.1 !important;
+  }
+}
+
+.flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.fill-height {
+  height: 100%;
+}
+
+.fill-width {
+  width: 100%;
+}
+
+.fill-all {
+  width: 100%;
+  height: 100%;
+}
+
+.pos-a {
+  position: absolute;
+}
+.pos-r {
+  position: relative;
+}
+.pos-f {
+  position: fixed;
+}
+
+.cursor-default {
+  cursor: default !important;
+}
+
+.cursor-pointer {
+  cursor: pointer !important;
+}
+
+.cursor-grab {
+  cursor: grab !important;
+}
+
+.cursor-grabbing {
+  cursor: grabbing !important;
+}
+
+.overflow-hidden {
+  overflow: hidden !important;
+}
+
+.overflow-auto {
+  overflow: auto !important;
+}
+
+.no-scroll-bar {
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+.o-auth-btn-box-shadow {
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.08) !important;
+}
+
+.fix-top-to-bar {
+  position: fixed;
+  left: 0;
+  top: var(--application-top);
+}
