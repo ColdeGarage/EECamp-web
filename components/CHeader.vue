@@ -9,7 +9,7 @@
       :key="link.name"
       :to="link.url"
       text
-      class="d-none d-md-flex align-center text-Global16"
+      class="d-none d-md-flex align-center text-Global16 ml-1"
     >
       {{ link.name }}
     </v-btn>

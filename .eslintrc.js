@@ -9,9 +9,18 @@ module.exports = {
   // add your custom rules here
   rules: {
     'vue/multi-word-component-names': [
-      'error',
+      'warn',
       {
-        ignores: ['default', 'error', 'index']
+        ignores: [
+          'default',
+          'error',
+          'index',
+          'info',
+          'signup',
+          'faq',
+          'contact',
+          'login'
+        ]
       }
     ]
   }
