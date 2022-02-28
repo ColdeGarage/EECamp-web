@@ -1,7 +1,8 @@
 <template>
-  <v-container>
+  <v-container class="d-flex flex-column align-center">
     <div class="text-Heading36 mb-6 d-flex justify-center">報名表單</div>
-    <v-card class="pa-10" elevation="7">
+    <!-- <div class="d-flex align-center"> -->
+    <v-card class="pa-10 ma-0" elevation="7" max-width="1400" width="100%">
       <v-form :model="form" ref="form">
         <v-row>
           <v-col cols="12" md="6">
@@ -294,9 +295,11 @@
         {{ alertMessage }}
       </v-alert>
 
-      {{ file }}
-      <v-btn @click="handleSubmit">送出報名資料</v-btn>
+      <div class="d-flex justify-center">
+        <v-btn @click="handleSubmit" color="primary" large>送出報名資料</v-btn>
+      </div>
     </v-card>
+    <!-- </div> -->
   </v-container>
 </template>
 
@@ -424,15 +427,22 @@ export default {
         } catch (err) {
           this.alert = true;
           this.alertMessage = '檔案上傳失敗';
+          return;
         }
         try {
-          const result = await this.$api.user.register(this.form);
-          console.log(result);
+          await this.$api.user.register(this.form);
         } catch (error) {
-          console.log(error);
+          console.error(error);
           this.alert = true;
-          this.alertMessage =
-            '報名失敗，請再次確認報名資料。如你認為結果有誤，請洽主辦單位。';
+          if (
+            error.message ===
+            'Failed to register, Error: Cannot create user, duplicate user.'
+          )
+            this.alertMessage = '報名資料重複，請再次確認。';
+          else
+            this.alertMessage =
+              '報名失敗，請再次確認報名資料。如你認為結果有誤，請洽主辦單位。';
+          return;
         }
         this.$router.push('/registerComplete');
       } else {
