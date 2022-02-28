@@ -19,7 +19,8 @@ module.exports = {
           'signup',
           'faq',
           'contact',
-          'login'
+          'login',
+          'register'
         ]
       }
     ]

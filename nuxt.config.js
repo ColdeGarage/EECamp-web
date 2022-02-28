@@ -17,11 +17,23 @@ export default {
     link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }]
   },
 
+  env: {
+    baseUrl:
+      process.env.NODE_ENV === 'dev'
+        ? 'http://localhost:7002'
+        : // TODO: change to real api url
+          'https://api.meichuhackathon.org'
+  },
+
   // Global CSS: https://go.nuxtjs.dev/config-css
   css: ['@/assets/css/utils.scss'],
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
-  plugins: ['@/plugins/vue-youtube.js'],
+  plugins: [
+    '@/plugins/vue-youtube.js',
+    '@/api/index.js',
+    { src: '@/plugins/vuex-persistedstate', ssr: true }
+  ],
 
   // Auto import components: https://go.nuxtjs.dev/config-components
   components: true,
@@ -37,7 +49,10 @@ export default {
   // Modules: https://go.nuxtjs.dev/config-modules
   modules: [
     // https://go.nuxtjs.dev/axios
-    '@nuxtjs/axios'
+    '@nuxtjs/axios',
+
+    // https://www.npmjs.com/package/cookie-universal-nuxt
+    ['cookie-universal-nuxt', { alias: 'cookiz' }]
   ],
 
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
