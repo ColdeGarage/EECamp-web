@@ -1,7 +1,5 @@
 <template>
-  <div>
-    <FrontPageCarousel />
-  </div>
+  <FrontPageCarousel />
 </template>
 
 <script>

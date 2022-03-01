@@ -22,7 +22,10 @@
             </nuxt-link>
             進入個人帳號上傳個人相片完成報名
           </li>
-          <li>等待正備取名單（{{ AnnounceTime }} 於官網以及 FB 粉專公布）</li>
+          <li>
+            等待正備取名單（{{ signupInfo.AnnounceTime }} 於官網以及 FB
+            粉專公布）
+          </li>
           <li>錄取後正取者請登入系統選擇是否參加，備取者則請等候我們的通知</li>
           <li>確認參加後匯款，並登入個人帳號 → 新增匯款資料、上傳家長同意書</li>
           <li>經營隊確認無誤後，就可以參加清大電機營了！</li>
@@ -35,8 +38,10 @@
           營期前一周會寄出營前通知書，報名資料務必填寫確實！
         </v-alert>
         <v-alert text color="error" border="top" class="pa-4 my-4">
-          {{ refundFifty }} 以前因故不能來者退費 50%，{{ refundTwenty }} 前退
-          25%，之後一律不退費。
+          {{ signupInfo.refundFifty }} 以前因故不能來者退費 50%，{{
+            signupInfo.refundTwenty
+          }}
+          前退 25%，之後一律不退費。
         </v-alert>
       </v-col>
       <v-col cols="12" md="6">
@@ -46,14 +51,14 @@
           <div class="d-flex justify-center my-2">
             匯款帳號：006102-1 060436-1
             <br />
-            匯款戶名（郵局）：{{ remittanceAccName }}
+            匯款戶名（郵局）：{{ signupInfo.remittanceAccName }}
             <br />
-            報名費用：新臺幣 {{ registerFee }} 元整
+            報名費用：新臺幣 {{ signupInfo.registerFee }} 元整
           </div>
           <ul>
             <li>
               正取的同學請在
-              <strong>{{ remittanceTime }}</strong>
+              <strong>{{ signupInfo.remittanceTime }}</strong>
               以前匯款完畢！
             </li>
             <li>
@@ -71,7 +76,7 @@
           <div class="text-Heading30">家長同意書</div>
           <v-divider class="my-4" />
           <a
-            href="/pdf/consent.pdf"
+            :href="`${baseUrl}${signupInfo.consent}`"
             target="_blank"
             class="text-decoration-none"
           >
@@ -86,15 +91,20 @@
 </template>
 
 <script>
+import { mapGetters } from 'vuex';
 export default {
-  data: () => ({
-    refundFifty: '6/15',
-    refundTwenty: '6/30',
-    AnnounceTime: '5/15',
-    remittanceAccName: '國立清華大學電機營 柯佩妤',
-    registerFee: 6000,
-    remittanceTime: '6/14'
-  })
+  // data: () => ({
+  //   refundFifty: '6/15',
+  //   refundTwenty: '6/30',
+  //   AnnounceTime: '5/15',
+  //   remittanceAccName: '國立清華大學電機營 柯佩妤',
+  //   registerFee: 6000,
+  //   remittanceTime: '6/14'
+  // }),
+  computed: {
+    ...mapGetters({ signupInfo: 'Web/GetSignupInfo' }),
+    baseUrl: () => process.env.baseUrl
+  }
 };
 </script>
 

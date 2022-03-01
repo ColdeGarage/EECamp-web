@@ -188,12 +188,7 @@
               required
             />
             <SizeBox width="15" />
-            <!-- TODO: change href -->
-            <v-btn
-              small
-              href="http://www.post.gov.tw/post/internet/Postal/index.jsp?ID=208"
-              target="_blank"
-            >
+            <v-btn small :href="`${baseUrl}${shirtImage}`" target="_blank">
               尺寸查詢
             </v-btn>
           </v-col>
@@ -307,6 +302,7 @@ import {
   isResidentCertificateNumberValid,
   isNewResidentCertificateNumberValid
 } from 'taiwan-id-validator';
+import { mapGetters } from 'vuex';
 
 export default {
   data: () => ({
@@ -402,6 +398,10 @@ export default {
       ]
     }
   }),
+  computed: {
+    ...mapGetters({ shirtImage: 'Web/GetShirtImage' }),
+    baseUrl: () => process.env.baseUrl
+  },
   watch: {
     menu(val) {
       val && setTimeout(() => (this.activePicker = 'YEAR'));

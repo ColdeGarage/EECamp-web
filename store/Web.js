@@ -52,7 +52,7 @@ const getters = {
       albumSite
     };
   },
-  GetSignUpInfo: (state) => {
+  GetSignupInfo: (state) => {
     const { consent, webData, usersStatus } = state;
     const {
       refundFifty,
@@ -118,7 +118,7 @@ const actions = {
       const frontPageImage = await this.$api.file.getFiles({
         filter: { type: 'FrontPage' }
       });
-      commit('SetFrontPageImage', frontPageImage);
+      commit('SetFrontPageImage', frontPageImage.data);
     } catch (error) {
       console.log(error);
     }

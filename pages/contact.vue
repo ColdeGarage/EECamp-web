@@ -7,6 +7,8 @@
     </div>
     <SizeBox height="20" />
     <v-btn
+      href="https://www.facebook.com/NTHUEECAMP/"
+      target="_blank"
       color="#3b5998"
       class="secondary900--text text-Global18"
       width="100%"
@@ -18,17 +20,17 @@
     </v-btn>
     <SizeBox height="20" />
     <v-card elevation="2" color="#17a2b8" class="secondary900--text pa-4">
-      總籌：蔡政霖
+      總籌：{{ contactInfo.convenor }}
       <br />
-      手機：0979381588
+      手機：{{ contactInfo.convenorPhone }}
       <br />
       聯絡時間：週一至週五 晚上 6 - 10 時，週六日整天
     </v-card>
     <SizeBox height="20" />
     <v-card elevation="2" color="#28a745" class="secondary900--text pa-4">
-      招生負責人：林書佑
+      招生負責人：{{ contactInfo.inCharge }}
       <br />
-      手機：0979228168
+      手機：{{ contactInfo.inChargePhone }}
       <br />
       聯絡時間：週一至週五 晚上6 - 10 時，週六日整天
     </v-card>
@@ -58,8 +60,13 @@
 </template>
 
 <script>
+import { mapGetters } from 'vuex';
 export default {
-  //
+  computed: {
+    ...mapGetters({
+      contactInfo: 'Web/GetContactInfo'
+    })
+  }
 };
 </script>
 

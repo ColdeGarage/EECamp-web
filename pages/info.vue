@@ -37,6 +37,8 @@
         <v-divider class="my-2" />
         <div class="d-flex flex-column flex-md-row justify-space-between">
           <v-btn
+            href="https://www.facebook.com/NTHUEECAMP/"
+            target="_blank"
             color="#3b5998"
             class="secondary900--text text-Global18"
             :width="$vuetify.breakpoint.mdAndUp ? '47%' : '100%'"
@@ -48,6 +50,8 @@
           </v-btn>
           <SizeBox height="15" />
           <v-btn
+            :href="campInfo.albumSite"
+            target="_blank"
             color="#0F9D58"
             class="secondary900--text text-Global18"
             :width="$vuetify.breakpoint.mdAndUp ? '47%' : '100%'"
@@ -61,7 +65,7 @@
         <SizeBox height="10" />
         <v-sheet width="100%">
           <youtube
-            :video-id="$getIdFromUrl(RecapVlog)"
+            :video-id="$getIdFromUrl(campInfo.RecapVlog)"
             :player-vars="playerVars"
             fitParent
             resize
@@ -75,13 +79,13 @@
         <v-divider class="my-2" />
         <div>
           <ul>
-            <li>營隊名稱：{{ campName }}</li>
-            <li>營隊日期：{{ campTime }}</li>
+            <li>營隊名稱：{{ campInfo.campName }}</li>
+            <li>營隊日期：{{ campInfo.campTime }}</li>
             <li>活動地點：清華大學校園</li>
             <li>住宿：清華大學學生宿舍</li>
-            <li>報名時間：{{ campRegister }}</li>
-            <li>招收學員數：{{ campPeople }} 人</li>
-            <li>活動費用：新臺幣 {{ registerFee }} 元</li>
+            <li>報名時間：{{ campInfo.campRegister }}</li>
+            <li>招收學員數：{{ campInfo.campPeople }} 人</li>
+            <li>活動費用：新臺幣 {{ campInfo.registerFee }} 元</li>
             <li>營隊開始時間：第一天上午 10:00 - 12:00 於台達館一樓報到</li>
             <li>營隊結束時間：最後一天約 15:30 於台達館一樓</li>
           </ul>
@@ -129,21 +133,27 @@
 </template>
 
 <script>
+import { mapGetters } from 'vuex';
 export default {
   data: () => ({
     playerVars: {
       autoplay: 1,
       mute: 1
-    },
-    campName: '2021清大電機營 - E 起來學電',
-    campPeople: '96',
-    campTime: '2021.7.24 - 2021.7.30 （共計 7 天 6 夜）',
-    campRegister: '2021.3.8 - 2021.5.7',
-    registerFee: 6000,
-    RecapVlog: 'https://youtu.be/AJZ2y7-dacM',
-    albumSite:
-      'https://drive.google.com/drive/folders/1Dm-4ouSc3e01doug2hyo5RLkIU2j3DYi'
-  })
+    }
+    // campName: '2021清大電機營 - E 起來學電',
+    // campPeople: '96',
+    // campTime: '2021.7.24 - 2021.7.30 （共計 7 天 6 夜）',
+    // campRegister: '2021.3.8 - 2021.5.7',
+    // registerFee: 6000,
+    // RecapVlog: 'https://youtu.be/AJZ2y7-dacM',
+    // albumSite:
+    //   'https://drive.google.com/drive/folders/1Dm-4ouSc3e01doug2hyo5RLkIU2j3DYi'
+  }),
+  computed: {
+    ...mapGetters({
+      campInfo: 'Web/GetCampInfo'
+    })
+  }
 };
 </script>
 
