@@ -11,13 +11,15 @@
         <ol>
           <li>
             填寫
-            <a href="/register" target="_blank" class="text-decoration-none">
+            <nuxt-link to="/register" class="text-decoration-none">
               報名表單
-            </a>
+            </nuxt-link>
           </li>
           <li>
             透過
-            <a href="/login" class="text-decoration-none">登入系統</a>
+            <nuxt-link to="/login" class="text-decoration-none">
+              登入系統
+            </nuxt-link>
             進入個人帳號上傳個人相片完成報名
           </li>
           <li>等待正備取名單（{{ AnnounceTime }} 於官網以及 FB 粉專公布）</li>
@@ -68,7 +70,13 @@
         <div>
           <div class="text-Heading30">家長同意書</div>
           <v-divider class="my-4" />
-          <a href="/pdf/consent.pdf" class="text-decoration-none">下載</a>
+          <a
+            href="/pdf/consent.pdf"
+            target="_blank"
+            class="text-decoration-none"
+          >
+            下載
+          </a>
           後列印並簽寫完畢（家長必須簽名和蓋章），之後掃描成電子檔並登入個人帳號點選
           「上傳家長同意書」上傳檔案。上傳完畢後您個人帳號的家長同意書狀態將變更為「已繳交」。
         </div>

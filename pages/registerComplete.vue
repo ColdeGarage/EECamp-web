@@ -7,7 +7,7 @@
       <v-divider class="mx-4" />
       <v-card-text class="text-Heading20 text-center">
         請
-        <a href="/login" class="text-decoration-none">登入系統</a>
+        <nuxt-link to="/login" class="text-decoration-none">登入系統</nuxt-link>
         確認資料
         <br />
         若需要更改報名資料，請登入系統並在報名截止前進行修改
