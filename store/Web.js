@@ -19,7 +19,10 @@ const state = () => ({
     albumSite: '',
     RegisterStatus: ''
   },
-  usersStatus: [],
+  usersStatus: {
+    UsersStatusChosen: [],
+    UsersStatusAlternate: []
+  },
   shirtImage: '',
   frontPageImage: [],
   consent: ''
@@ -53,7 +56,7 @@ const getters = {
     };
   },
   GetSignupInfo: (state) => {
-    const { consent, webData, usersStatus } = state;
+    const { consent, webData } = state;
     const {
       refundFifty,
       refundTwenty,
@@ -71,11 +74,11 @@ const getters = {
       registerFee,
       remittanceTime,
       consent,
-      usersStatus,
       RegisterStatus
     };
   },
-  GetShirtImage: (state) => state.shirtImage
+  GetShirtImage: (state) => state.shirtImage,
+  GetUsersStatus: (state) => state.usersStatus
 };
 
 const mutations = {
@@ -107,8 +110,15 @@ const actions = {
   },
   async FetchUsersStatus({ commit }) {
     try {
-      const UsersStatus = await this.$api.user.getUsersStatus();
-      commit('SetUsersStatus', UsersStatus);
+      const { data: UsersStatusChosen } = await this.$api.user.getUsersStatus({
+        filter: { status: ['Paid', 'Unpaid', 'GaveUp'] }
+      });
+      const { data: UsersStatusAlternate } =
+        await this.$api.user.getUsersStatus({
+          filter: { status: 'Alternate' },
+          sort: { alternateNum: 1 }
+        });
+      commit('SetUsersStatus', { UsersStatusChosen, UsersStatusAlternate });
     } catch (error) {
       console.log(error);
     }

@@ -87,6 +87,11 @@
         </div>
       </v-col>
     </v-row>
+    <v-row>
+      <v-col cols="12">
+        <UsersStatus />
+      </v-col>
+    </v-row>
   </v-container>
 </template>
 
