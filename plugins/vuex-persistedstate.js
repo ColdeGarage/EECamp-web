@@ -1,10 +1,12 @@
 import createPersistedState from 'vuex-persistedstate';
+// import Layout from '~/store/Layout';
 
 export default ({ store, isHMR }) => {
   if (isHMR) return;
   if (process.client) {
     window.onNuxtReady(() => {
       createPersistedState({
+        paths: ['Layout'],
         storage: window.sessionStorage
       })(store);
     });

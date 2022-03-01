@@ -1,9 +1,11 @@
 import * as user from './user.js';
 import * as file from './file.js';
+import * as web from './web.js';
 
 const apis = {
   file,
-  user
+  user,
+  web
 };
 
 const insertApi = (controller, api) => {

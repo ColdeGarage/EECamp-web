@@ -1,7 +1,6 @@
 <template>
   <v-container class="d-flex flex-column align-center">
     <div class="text-Heading36 mb-6 d-flex justify-center">報名表單</div>
-    <!-- <div class="d-flex align-center"> -->
     <v-card class="pa-10 ma-0" elevation="7" max-width="1400" width="100%">
       <v-form :model="form" ref="form">
         <v-row>
@@ -299,7 +298,6 @@
         <v-btn @click="handleSubmit" color="primary" large>送出報名資料</v-btn>
       </div>
     </v-card>
-    <!-- </div> -->
   </v-container>
 </template>
 
