@@ -236,6 +236,7 @@
         <v-row>
           <v-col cols="12">
             <v-textarea
+              auto-grow
               v-model="form.selfIntro"
               :rules="rules.selfIntro"
               label="自我介紹"
@@ -248,6 +249,7 @@
         <v-row>
           <v-col cols="12">
             <v-textarea
+              auto-grow
               v-model="form.motivation"
               :rules="rules.motivation"
               label="報名動機"
@@ -276,6 +278,7 @@
         <v-row>
           <v-col cols="12">
             <v-textarea
+              auto-grow
               v-model="form.sthToSay"
               label="想說的話（選填）"
               placeholder="想要說的話 or 需要我們知道的事～"
@@ -305,6 +308,10 @@ import {
 import { mapGetters } from 'vuex';
 
 export default {
+  async middleware({ redirect, store }) {
+    const { RegisterStatus } = store.getters['Web/GetSignupInfo'];
+    if (RegisterStatus !== 'register') redirect('/registerEnd');
+  },
   data: () => ({
     alert: false,
     alertMessage: '',
@@ -393,7 +400,7 @@ export default {
       file: [
         (v) => !!v || '請上傳個人照片',
         (v) =>
-          (v && v.type.startsWith('image/')) ||
+          (v && v.type && v.type.startsWith('image/')) ||
           '請上傳圖片檔（jpg, jpeg, png, gif, webp, svg）'
       ]
     }

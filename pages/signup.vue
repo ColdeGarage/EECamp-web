@@ -11,7 +11,14 @@
         <ol>
           <li>
             填寫
-            <nuxt-link to="/register" class="text-decoration-none">
+            <nuxt-link
+              :to="
+                signupInfo.RegisterStatus === 'register'
+                  ? '/register'
+                  : '/registerEnd'
+              "
+              class="text-decoration-none"
+            >
               報名表單
             </nuxt-link>
           </li>
@@ -89,7 +96,24 @@
     </v-row>
     <v-row>
       <v-col cols="12">
-        <UsersStatus />
+        <v-alert
+          text
+          color="success"
+          class="pa-4 my-4 d-flex justify-center text-Heading20"
+        >
+          {{
+            signupInfo.RegisterStatus === 'register'
+              ? '報名進行中，請大家儘速完成報名～～～'
+              : signupInfo.RegisterStatus === 'fillingUp'
+              ? '仍在遞補，大家都還有機會!!!'
+              : '已全數遞補完，謝謝大家的參與，也期待暑假與你們相會!!!'
+          }}
+        </v-alert>
+      </v-col>
+    </v-row>
+    <v-row>
+      <v-col cols="12">
+        <UsersStatus v-show="signupInfo.RegisterStatus !== 'register'" />
       </v-col>
     </v-row>
   </v-container>

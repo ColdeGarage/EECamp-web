@@ -3,8 +3,7 @@ import { vuetifyConfig } from './vuetify.config';
 export default {
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
-    titleTemplate: '%s - eecamp-web',
-    title: 'eecamp-web',
+    title: '清大電機營',
     htmlAttrs: {
       lang: 'zh-tw'
     },
