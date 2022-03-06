@@ -183,11 +183,12 @@ export default {
         try {
           delete this.web._id;
           delete this.web.__v;
-          this.$api.web.modifyWebsite(this.web);
+          await this.$api.web.modifyWebsite(this.web);
         } catch (error) {
           this.alert = true;
           this.alertMessage = '上傳失敗';
           console.error(error);
+          return;
         }
         this.success = true;
       } else {
