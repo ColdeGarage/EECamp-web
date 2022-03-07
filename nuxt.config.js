@@ -21,7 +21,7 @@ export default {
       process.env.NODE_ENV === 'dev'
         ? 'http://localhost:7002'
         : // TODO: change to real api url
-          'https://api.meichuhackathon.org'
+          'https://eecampapi.nthuee.org'
   },
 
   // Global CSS: https://go.nuxtjs.dev/config-css
