@@ -1,0 +1,162 @@
+$TextStyles: (
+  'Heading72': (
+    'font-size': 72px,
+    'line-height': 106px
+  ),
+  'Heading64': (
+    'font-size': 64px,
+    'line-height': 93px
+  ),
+  'Heading42': (
+    'font-size': 42px,
+    'line-height': 70px
+  ),
+  'Heading36': (
+    'font-size': 36px,
+    'line-height': 52px
+  ),
+  'Heading30': (
+    'font-size': 30px,
+    'line-height': 43px
+  ),
+  'Heading24': (
+    'font-size': 24px,
+    'line-height': 35px
+  ),
+  'Heading20': (
+    'font-size': 20px,
+    'line-height': 29px
+  ),
+  'Global26': (
+    'font-size': 26px,
+    'line-height': 42px
+  ),
+  'Global24': (
+    'font-size': 24px,
+    'line-height': 36px
+  ),
+  'Global20': (
+    'font-size': 20px,
+    'line-height': 30px
+  ),
+  'Global18': (
+    'font-size': 18px,
+    'line-height': 28px
+  ),
+  'Global16': (
+    'font-size': 16px,
+    'line-height': 22px
+  ),
+  'Global14': (
+    'font-size': 14px,
+    'line-height': 20px
+  ),
+  'Global12': (
+    'font-size': 12px,
+    'line-height': 17px
+  ),
+  'Input16': (
+    'font-size': 16px,
+    'line-height': 28px
+  ),
+  'Heading1': (
+    'font-size': 4.209rem,
+    'line-height': 1.4
+  ),
+  'Heading2': (
+    'font-size': 3.157rem,
+    'line-height': 1.4
+  ),
+  'Heading3': (
+    'font-size': 2.369rem,
+    'line-height': 1.4
+  ),
+  'Heading4': (
+    'font-size': 1.777rem,
+    'line-height': 1.4
+  ),
+  'Heading5': (
+    'font-size': 1.333rem,
+    'line-height': 1.4
+  ),
+  'Global1': (
+    'font-size': 1rem,
+    'line-height': 1.4
+  ),
+  'Global2': (
+    'font-size': 0.88rem,
+    'line-height': 1.4
+  )
+);
+
+$breakpoints: (
+  'sm': #{map-get($display-breakpoints, 'sm-and-up')},
+  'md': #{map-get($display-breakpoints, 'md-and-up')},
+  'lg': #{map-get($display-breakpoints, 'lg-and-up')},
+  'xl': #{map-get($display-breakpoints, 'xl-only')}
+);
+
+/**
+
+ */
+
+@each $textStyle, $TextValue in $TextStyles {
+  .text-#{$textStyle} {
+    font-size: map-get($TextValue, 'font-size') !important;
+    line-height: map-get($TextValue, 'line-height') !important;
+  }
+}
+
+/*                           *\
+          FONT WEIGHTS
+\*                           */
+.Extrabold {
+  font-weight: 800 !important;
+}
+
+.Bold {
+  font-weight: bold !important;
+}
+
+.Semibold {
+  font-weight: 600 !important;
+}
+
+.Medium {
+  font-weight: 500 !important;
+}
+
+.Regular {
+  font-weight: 400 !important;
+}
+
+@each $textStyle, $TextValue in $TextStyles {
+  @each $breakpoint, $value in $breakpoints {
+    @media #{$value} {
+      .text-#{$breakpoint}-#{$textStyle} {
+        font-size: map-get($TextValue, 'font-size') !important;
+        line-height: map-get($TextValue, 'line-height') !important;
+      }
+
+      .#{$breakpoint}-Extrabold {
+        font-weight: 800 !important;
+      }
+
+      .#{$breakpoint}-Bold {
+        font-weight: bold !important;
+      }
+
+      .#{$breakpoint}-Semibold {
+        font-weight: 600 !important;
+      }
+
+      .#{$breakpoint}-Medium {
+        font-weight: 500 !important;
+      }
+
+      .#{$breakpoint}-Regular {
+        font-weight: 400 !important;
+      }
+    }
+  }
+}

@@ -4,12 +4,25 @@ module.exports = {
     browser: true,
     node: true
   },
-  extends: [
-    '@nuxtjs/eslint-config-typescript',
-    'plugin:nuxt/recommended',
-    'prettier'
-  ],
+  extends: ['plugin:vue/essential', 'plugin:nuxt/recommended', 'prettier'],
   plugins: [],
   // add your custom rules here
-  rules: {}
+  rules: {
+    'vue/multi-word-component-names': [
+      'warn',
+      {
+        ignores: [
+          'default',
+          'error',
+          'index',
+          'info',
+          'signup',
+          'faq',
+          'contact',
+          'login',
+          'register'
+        ]
+      }
+    ]
+  }
 };
