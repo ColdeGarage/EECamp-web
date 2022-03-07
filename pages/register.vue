@@ -428,7 +428,7 @@ export default {
             'Content-Type': this.file.type,
             fileName: encodeURIComponent(this.file.name)
           });
-          this.form.photoPath = fileUrl.path;
+          this.form.photoPath = fileUrl.filePath;
         } catch (err) {
           this.alert = true;
           this.alertMessage = '檔案上傳失敗';

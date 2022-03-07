@@ -9,7 +9,7 @@
     >
       {{ alertData.text }}
     </v-alert>
-    <PanelEditForm :form="user" />
+    <PanelEditForm :form="user" :editable="true"/>
     <div
       v-if="user.status === 'Paid' || user.status === 'Unpaid'"
       class="fill-width"

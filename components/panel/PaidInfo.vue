@@ -122,7 +122,7 @@ export default {
               fileName: encodeURIComponent(this.file.name)
             });
             // eslint-disable-next-line vue/no-mutating-props
-            this.form.consentPath = fileUrl.path;
+            this.form.consentPath = fileUrl.filePath;
           } catch (err) {
             this.alert = true;
             this.alertMessage = '檔案上傳失敗';

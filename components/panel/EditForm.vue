@@ -330,7 +330,7 @@ export default {
   props: {
     editable: {
       type: Boolean,
-      default: () => false
+      default: () => true
     },
     form: {
       type: Object,
@@ -457,7 +457,7 @@ export default {
               fileName: encodeURIComponent(this.file.name)
             });
             // eslint-disable-next-line vue/no-mutating-props
-            this.form.photoPath = fileUrl.path;
+            this.form.photoPath = fileUrl.filePath;
           } catch (err) {
             this.alert = true;
             this.alertMessage = '檔案上傳失敗';
