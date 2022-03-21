@@ -122,14 +122,6 @@
 <script>
 import { mapGetters } from 'vuex';
 export default {
-  // data: () => ({
-  //   refundFifty: '6/15',
-  //   refundTwenty: '6/30',
-  //   AnnounceTime: '5/15',
-  //   remittanceAccName: '國立清華大學電機營 柯佩妤',
-  //   registerFee: 6000,
-  //   remittanceTime: '6/14'
-  // }),
   computed: {
     ...mapGetters({ signupInfo: 'Web/GetSignupInfo' }),
     baseUrl: () => process.env.baseUrl

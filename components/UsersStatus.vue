@@ -32,9 +32,7 @@
       </v-col>
     </v-row>
     <SizeBox height="50" />
-    <div class="text-Heading20 d-flex justify-center">
-      備取（順序由左至右，由上至下）
-    </div>
+    <div class="text-Heading20 d-flex justify-center">備取</div>
     <v-divider class="my-4" />
     <v-row no-gutters>
       <v-col
