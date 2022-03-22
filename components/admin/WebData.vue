@@ -171,9 +171,9 @@ export default {
       const res = await this.$api.web.getWebsite();
       this.web = res;
     },
-    handleNewFAQ() {
-      console.log('hi');
-    },
+    // handleNewFAQ() {
+    //   console.log('hi');
+    // },
     async handleSubmit() {
       this.alert = false;
       this.alertMessage = '';

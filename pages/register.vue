@@ -421,7 +421,6 @@ export default {
     },
     async handleSubmit() {
       this.alert = false;
-      console.log(this.file);
       this.alertMessage = '';
       const validateResult = await this.$refs.form.validate();
       if (validateResult) {
