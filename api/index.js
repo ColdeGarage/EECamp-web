@@ -63,8 +63,6 @@ export default function ({ app }, inject) {
   const api = async (method = 'post', url, data, headers = {}, params = {}) => {
     const token = cookiz.get('auth_token');
 
-    // headers['content-type'] = 'image/*';
-
     if (token) {
       headers['Authorization'] = `Bearer ${token}`;
       headers['Access-Control-Allow-Origin'] = '*';

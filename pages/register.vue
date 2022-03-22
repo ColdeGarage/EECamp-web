@@ -401,7 +401,8 @@ export default {
         (v) => !!v || '請上傳個人照片',
         (v) =>
           (v && v.type && v.type.startsWith('image/')) ||
-          '請上傳圖片檔（jpg, jpeg, png, gif, webp, svg）'
+          '請上傳圖片檔（jpg, jpeg, png, gif, webp, svg）',
+        (v) => (v && v.size && v.size <= 15000000) || '檔案請小於 15 MB'
       ]
     }
   }),

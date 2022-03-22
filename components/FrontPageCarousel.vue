@@ -8,6 +8,7 @@
           class="d-flex align-center"
           height="100%"
           width="100%"
+          eager
         >
           <div
             class="d-flex fill-width justify-center text-center secondary900--text text-Heading42 text-md-Heading72 font-weight-bold TextShadow"
