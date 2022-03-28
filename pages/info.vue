@@ -1,5 +1,8 @@
 <template>
   <v-container class="px-6 px-md-0">
+    <v-alert text color="warning" border="left" class="pa-4">
+      今年新增： 自己做的Arduino車車，自己帶回家!!
+    </v-alert>
     <v-row>
       <v-col cols="12" md="5">
         <div class="text-Heading30">總籌的話</div>
@@ -30,6 +33,7 @@
           今年，給自己一個不一樣的夏天
           <br />
           快來參加清大電機營吧！
+          <br />
         </div>
       </v-col>
       <v-col cols="12" md="7">
@@ -124,8 +128,8 @@
         <div class="text-Heading30">課程相關</div>
         <v-divider class="my-2" />
         <div>
-          電機系基礎課程、Arduino 實作、FPGA
-          介紹、電機八大領域介紹⋯⋯等，以讓高中生中生探索電機系為主要目的，不會過於艱澀。
+          電機系基礎課程、Arduino
+          實作、FPGA介紹、網頁介紹、電機八大領域介紹⋯⋯等，以讓高中生中生探索電機系為主要目的，不會過於艱澀。
         </div>
       </v-col>
     </v-row>

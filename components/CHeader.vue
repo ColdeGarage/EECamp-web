@@ -45,6 +45,10 @@ export default {
           url: '/contact'
         },
         {
+          name: '支持我們',
+          url: '/supportUs'
+        },
+        {
           name: '登入系統',
           url: '/login'
         }
